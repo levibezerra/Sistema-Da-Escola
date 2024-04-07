@@ -17,11 +17,6 @@ public class MyClass {
 		
 		double media = (nota1 + nota2 + nota3 + nota4) / 4;
 		
-		int saldoc = 100;
-		int total = saldoc--;
-		
-		System.out.println(total + "/" + saldoc);
-		
 		System.out.println("Nome: " + nome + "\n"
 				         + "Sobrenome: " + sobrenome + "\n"
 						 + "Idade: " + idade + "\n"
@@ -30,6 +25,12 @@ public class MyClass {
 						 + "Nome Da Mae: " + nomeDaMae + "\n"
 						 + "Tem Autorizacao: " + temAtorizacao + "\n"
 						 + "Media De Portugues: " + media);
+		
+		if(media >= 7) {
+			System.out.println("O aluno " + nome + " esta aprovado na disciplina de portugues com a media " + media);
+		} else {
+			System.out.println("O aluno " + nome + "esta reprovado na disciplina de portugues com a media " + media);
+		}
 	}
 }
  
