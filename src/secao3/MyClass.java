@@ -28,6 +28,8 @@ public class MyClass {
 		
 		if(media >= 7) {
 			System.out.println("O aluno " + nome + " esta aprovado na disciplina de portugues com a media " + media);
+		} else if(media < 7 && media >= 5) {
+			System.out.println("O aluno " + nome + "devera fazer recuperacao da disciplina de portugues");
 		} else {
 			System.out.println("O aluno " + nome + "esta reprovado na disciplina de portugues com a media " + media);
 		}
