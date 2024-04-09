@@ -1,10 +1,14 @@
 package secao3;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyClass {
 	public static void main(String [] args) {
 
+		List<String> responsaveisDoAluno = new ArrayList<>();
+		
 		String nome = "Paulo";
 		String sobrenome = "Lima";
 		int idade = 22;
@@ -22,7 +26,39 @@ public class MyClass {
 						 + "Tem Autorizacao: " + temAtorizacao + "\n");
 		
 		informeSuaNota();
+		responsaveisDoAluno = adicionarResponsaveis(responsaveisDoAluno, nomeDoPai);
+		responsaveisDoAluno = adicionarResponsaveis(responsaveisDoAluno, nomeDaMae);
+		responsaveisDoAluno = editarResponsaveis(responsaveisDoAluno, "Carla", 1);
+		responsaveisDoAluno = removerResponsaveis(responsaveisDoAluno);
+		responsaveisDoAluno = ordenarResponsaveis(responsaveisDoAluno);
+		exibeResponsaveis(responsaveisDoAluno);
 		
+	}
+	
+	public static void exibeResponsaveis(List<String> responsaveisDoAluno) {
+		for(int i = 0; i < responsaveisDoAluno.size(); i++) {
+			System.out.println((i + 1) + ": " + responsaveisDoAluno.get(i));
+		}
+	}
+	
+	public static List<String> adicionarResponsaveis(List<String> responsaveisDoAluno, String nome) {
+	    responsaveisDoAluno.add(nome);
+		return responsaveisDoAluno; 
+	}
+	
+	public static List<String> editarResponsaveis(List<String> responsaveisDoAluno, String nome, int index) {
+		responsaveisDoAluno.set(index, nome);
+		return responsaveisDoAluno;
+	}
+	
+	public static List<String> removerResponsaveis(List<String> responsaveisDoAluno) {
+		responsaveisDoAluno.remove(responsaveisDoAluno.size() - 1);
+		return responsaveisDoAluno;
+	}
+	
+	public static List<String> ordenarResponsaveis(List<String> responsaveisDoAluno) {
+		responsaveisDoAluno.sort(null);
+		return responsaveisDoAluno;
 	}
 	
 	public static String verificaMedia(double media) {
@@ -65,4 +101,3 @@ public class MyClass {
 		 return media;
 	 }
 }
- 
