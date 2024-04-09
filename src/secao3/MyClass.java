@@ -1,5 +1,7 @@
 package secao3;
 
+import java.util.Scanner;
+
 public class MyClass {
 	public static void main(String [] args) {
 
@@ -10,12 +12,6 @@ public class MyClass {
 		String nomeDoPai = "Jose";
 		String nomeDaMae = "Maria";
 		boolean temAtorizacao = true;
-		double nota1 = 8.5;
-		double nota2 = 10;
-		double nota3 = 9.5;
-		double nota4 = 7.5;
-		
-		double media = (nota1 + nota2 + nota3 + nota4) / 4;
 		
 		System.out.println("Nome: " + nome + "\n"
 				         + "Sobrenome: " + sobrenome + "\n"
@@ -23,16 +19,50 @@ public class MyClass {
 						 + "Matricula: " + matricula + "\n"
 						 + "Nome Do Pai: " + nomeDoPai + "\n"
 						 + "Nome Da Mae: " + nomeDaMae + "\n"
-						 + "Tem Autorizacao: " + temAtorizacao + "\n"
-						 + "Media De Portugues: " + media);
+						 + "Tem Autorizacao: " + temAtorizacao + "\n");
+		
+		informeSuaNota();
+		
+	}
+	
+	public static String verificaMedia(double media) {
+		String mensagem;
 		
 		if(media >= 7) {
-			System.out.println("O aluno " + nome + " esta aprovado na disciplina de portugues com a media " + media);
-		} else if(media < 7 && media >= 5) {
-			System.out.println("O aluno " + nome + "devera fazer recuperacao da disciplina de portugues");
+			mensagem = "Aluno aprovado com a media: " + media;
+		} else if(media < 7 && media <= 5) {
+			mensagem = "O aluno está em recuperação, sua media foi: " + media;
 		} else {
-			System.out.println("O aluno " + nome + "esta reprovado na disciplina de portugues com a media " + media);
+			mensagem = " O aluno está reprovado, sua media foi: " + media;
 		}
+		return mensagem; 
 	}
+	
+	 public static void informeSuaNota() {
+		 Scanner input = new Scanner(System.in);
+		 
+		 int cont = 0;
+		 double somaNotas = 0;
+
+		 while(true) {
+			 System.out.println("Informe sua nota: ");
+			 double nota = input.nextDouble();
+			 
+			 if(nota == 0) {
+				 break;
+			 }
+			 
+			 somaNotas += nota;
+			 cont++;
+		 }
+		 
+		 double media = calculaMedia(somaNotas, cont);
+		 System.out.println(verificaMedia(media));
+	 }
+	 
+	 public static double calculaMedia(double somaNotas, int quantDeNotas) {
+		 double media = somaNotas / quantDeNotas;
+		 return media;
+	 }
 }
  
